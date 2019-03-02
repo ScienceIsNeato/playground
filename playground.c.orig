@@ -46,45 +46,22 @@ void printRandomNumber(char *file)
 int main(int argc, char** argv)
 {
 
-        /* See Note 1 */
-        if(argc > 1)
-        {
-                printf("About to generate ");
-                printf(argv[1]);
-                printf(" random numbers...\n");
-        }
-        else
-        {
-                printf("Usage 'playgound <num_rands>'\n");
-                return 0;
-        }
+        printf("About to generate ");
+        printf(argv[1]);
+        printf(" random numbers...\n");
 
         printf("Press 'y' to continue..  ");
-
-        /* See Note 3 
         char answer[2];
         gets(answer);
-        */
-        int ans_len = 2;
-        char answer[ans_len];
-        fgets(answer, ans_len, stdin); // use this instead
-
-        /* See Note 4 */
         printf("answer: %s %p\n", answer, answer);
 
-        /* See Note 2 */
-        if(answer[0] != 'y'){ // See Note 5
+        if(answer[0] == "y"){
                 printf("You answered %s, aborting\n",answer);
-                
                 return 0;
         }
 
-        /* See Note 6 */
-        short count = atoi(argv[1]); // This (argv[1]) is only ok because of the code change we made in Note 1
 
-
-        printf("About to generate %u \n",count);
-
+        short count = atoi(argv[1]);
 
         while(--count){
 
